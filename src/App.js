@@ -1,22 +1,47 @@
 import React, { Component } from 'react';
-
-// import Lab1 from './Lab1';
-// import Lab2 from './Lab2';
-// import Lab3 from './Lab3';
-// import Lab4 from './Lab4';
-// import Lab5 from './Lab5';
+import classNames from 'classnames';
+import labs from './items';
 
 import './App.css';
 
+const TITLE = [
+  'Display additive animation',
+  'Demo mount and unmount effect',
+  'Demo react-motion using player',
+  'Demo old PrefetchPlayer',
+  'Demo new PrefetchPlayer',
+  'Demo dom mousedrag using rxjs',
+];
+
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      active: 5
+    }
+  }
   render() {
+    const { active } = this.state;
+    const ActComp = Object.values(labs)[active];
     return (
       <div className="App">
-        {/* <Lab1 /> */}
-        {/* <Lab2 /> */}
-        {/* <Lab3 /> */}
-        {/* <Lab4 /> */}
-        <Lab5 />
+        <nav className="Nav">
+          <ul style={{ listStyle: 'none', padding: 0 }}><li>
+            {Object.keys(labs).map((ele, i) =>
+              <div key={`item-${i}`}
+                className={classNames('nav-item', active === i && 'nav-active')}
+                onClick={() => this.setState({ active: i })}>
+                {ele}
+              </div>
+            )}
+          </li></ul>
+        </nav>
+        <section className="Content">
+          <header className="Content-header" style={{ flex: 2 }}>
+            <h2>{TITLE[active]}</h2>
+          </header>
+          <div style={{ flex: 16 }}>{<ActComp />}</div>
+        </section>
       </div>
     );
   }

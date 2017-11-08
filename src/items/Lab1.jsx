@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Toogle from './components/Toogle';
+import Toogle from '../components/Toogle';
 
 
 export default class extends Component {

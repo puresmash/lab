@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { spring } from 'react-motion';
-import SkeletonUi from './components/SkeletonUi';
+import SkeletonUi from '../components/SkeletonUi';
 
 
 

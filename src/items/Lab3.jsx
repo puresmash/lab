@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Player from './components/Player';
+import Player from '../components/Player';
 
 export default class Lab3 extends Component {
   render() {

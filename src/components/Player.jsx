@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { spring, TransitionMotion } from 'react-motion';
 import './Player.css';
-const Wrapper = ({ children }) => <div className="wrapper">{children}</div>;
+const Wrapper = ({ children }) => <div className="player-wrapper">{children}</div>;
 const Toolbar = ({children}) => <div className="toolbar">{children}</div>;
 export default class Player extends Component {
   constructor() {

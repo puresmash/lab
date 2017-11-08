@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Player from './components/PrefetchPlayer';
+import Player from '../components/PrefetchPlayer';
 
 export default class Lab4 extends Component {
   render() {

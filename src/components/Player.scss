@@ -4,14 +4,17 @@
   background-color: lightgray;
   display: flex;
   flex-direction: column;
-  min-height: 500px; }
-  .player-wrapper .slide-wrapper {
+  min-height: 500px;
+
+  .slide-wrapper {
     overflow: hidden;
     background-color: white;
     position: relative;
     flex-direction: row;
-    flex: 1; }
-  .player-wrapper .slide-item {
+    flex: 1;
+  }
+
+  .slide-item {
     background-color: aliceblue;
     min-width: 100%;
     min-height: 100%;
@@ -19,13 +22,18 @@
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: center; }
-  .player-wrapper .toolbar-wrapper {
+    justify-content: center;
+  }
+  .toolbar-wrapper {
     padding: 8px;
     background-color: lightgreen;
     /*flex: 1;*/
     /*flex-basis: 20%;*/
-    max-height: 100px; }
-  .player-wrapper .toolbar {
+    max-height: 100px;
+  }
+
+  .toolbar {
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+  }
+}

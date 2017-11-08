@@ -11,3 +11,10 @@ This is an experiment space consist of some new discover things.
 - Lab 3, 4 are about prefetch technique which are inspired by this [talk](https://www.youtube.com/watch?v=V8oTJ8OZ5S0).
 
   Imagine a circumstance, lots amount of image appear on the smae page, but user can only see part of them at the same time (e.g. carousel or scrollview). These labs attempt to shorten user waiting time by lazy loading and prefetch.
+
+## usage
+
+```
+npm start
+npm run watch-css
+```

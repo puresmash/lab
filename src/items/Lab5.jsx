@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import PrefetchImage from './components/PrefetchImage';
-import './components/PrefetchPlayer.css';
+import PrefetchImage from '../components/PrefetchImage';
+import '../components/PrefetchPlayer.css';
 
 const items = [
   'http://via.placeholder.com/301x150',
