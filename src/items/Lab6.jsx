@@ -13,20 +13,20 @@ export default class Lab6 extends Component {
 
     const $target = document.querySelector('#brick');
 
-    const $mousemove = Observable.fromEvent(document, 'mousemove')
-    const $mouseup = Observable.fromEvent(document, 'mouseup')
-    const $mousedown = Observable.fromEvent($target, 'mousedown');
+    const mousemove$ = Observable.fromEvent(document, 'mousemove')
+    const mouseup$ = Observable.fromEvent(document, 'mouseup')
+    const mousedown$ = Observable.fromEvent($target, 'mousedown');
 
-    const $mousedrag = $mousedown
+    const mousedrag$ = mousedown$
     .switchMap(md => {
       const startX = md.screenX;
       console.log(startX)
-      return $mousemove
+      return mousemove$
       .map(mm => {
         mm.preventDefault();
         return mm.screenX - startX;
       })
-      .takeUntil($mouseup)
+      .takeUntil(mouseup$)
     })
     .subscribe(movementX => {
       this.setState({ movementX })

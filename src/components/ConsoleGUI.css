@@ -1,0 +1,11 @@
+.console-gui {
+  color: #00ff00;
+  background: black;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  padding: 16px 16px;
+  margin-top: 8px;
+  max-height: 50vh;
+}

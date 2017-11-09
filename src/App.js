@@ -11,13 +11,14 @@ const TITLE = [
   'Demo old PrefetchPlayer',
   'Demo new PrefetchPlayer',
   'Demo dom mousedrag using rxjs',
+  'Demo throttle and exhaustMap of redux-observable'
 ];
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      active: 5
+      active: 6
     }
   }
   render() {
@@ -37,10 +38,10 @@ class App extends Component {
           </li></ul>
         </nav>
         <section className="Content">
-          <header className="Content-header" style={{ flex: 2 }}>
+          <header className="Content-header">
             <h2>{TITLE[active]}</h2>
           </header>
-          <div style={{ flex: 16 }}>{<ActComp />}</div>
+          <div style={{ margin: 8 }}>{<ActComp />}</div>
         </section>
       </div>
     );
