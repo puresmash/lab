@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { spring } from 'react-motion';
 import SkeletonUi from '../components/SkeletonUi';
 
-
-
 export default class Lab2 extends Component {
+  static TITLE = 'Demo mount and unmount effect';
   constructor() {
     super();
     this.state = {

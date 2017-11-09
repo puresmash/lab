@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Player from '../components/PrefetchPlayer';
 
 export default class Lab4 extends Component {
+  static TITLE = 'Demo old PrefetchPlayer';
   render() {
     return (
       <Player

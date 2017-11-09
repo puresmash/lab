@@ -7,6 +7,7 @@ import * as Actions from '../actions';
 const oldConsole = console.log;
 
 class Lab7 extends Component {
+  static TITLE = 'Demo throttle and exhaustMap of redux-observable';
   constructor() {
     super();
     this.state = {

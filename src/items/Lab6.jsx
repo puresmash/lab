@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 
 
 export default class Lab6 extends Component {
+  static TITLE = 'Demo dom mousedrag using rxjs';
   constructor(){
     super();
     this.state = {

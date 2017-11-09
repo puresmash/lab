@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Player from '../components/Player';
 
 export default class Lab3 extends Component {
+  static TITLE = 'Demo react-motion by player';
   render() {
     return (
       <Player

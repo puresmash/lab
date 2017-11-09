@@ -4,15 +4,15 @@ import labs from './items';
 
 import './App.css';
 
-const TITLE = [
-  'Display additive animation',
-  'Demo mount and unmount effect',
-  'Demo react-motion using player',
-  'Demo old PrefetchPlayer',
-  'Demo new PrefetchPlayer',
-  'Demo dom mousedrag using rxjs',
-  'Demo throttle and exhaustMap of redux-observable'
-];
+// const TITLE = [
+//   'Display additive animation',
+//   'Demo mount and unmount effect',
+//   'Demo react-motion by player',
+//   'Demo old PrefetchPlayer',
+//   'Demo new PrefetchPlayer',
+//   'Demo dom mousedrag using rxjs',
+//   'Demo throttle and exhaustMap of redux-observable'
+// ];
 
 class App extends Component {
   constructor() {
@@ -39,7 +39,8 @@ class App extends Component {
         </nav>
         <section className="Content">
           <header className="Content-header">
-            <h2>{TITLE[active]}</h2>
+            <h2>{ActComp.TITLE}</h2>
+
           </header>
           <div style={{ margin: 8 }}>{<ActComp />}</div>
         </section>

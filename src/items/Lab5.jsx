@@ -17,6 +17,7 @@ const items = [
 ];
 
 export default class Lab5 extends Component {
+  static TITLE = 'Demo new PrefetchPlayer';
   constructor(){
     super();
     this.state = {
