@@ -1,0 +1,85 @@
+.maskPlayer {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  will-change: opacity;
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  .content {
+    background-color: white;
+    // margin: 0px auto;
+    // width: 100%;
+    // height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    // min-height: 250px;
+
+  }
+  .modal-header {
+    padding: 24px;
+    line-height: 32px;
+    font-size: 22px;
+    display: flex;
+    justify-content: space-between;
+    // min-height: 118px;
+    // background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.1);
+  }
+  .modal-body {
+    padding: 0 24px 24px;
+    // height: calc(100% - 104px);
+    flex: 1;
+  }
+  .btn {
+    max-width: 32px;
+    max-height: 32px;
+    border: 0;
+    background: unset;
+    font-size: 24px;
+    line-height: 24px;
+    outline: none;
+    &.btn-close {
+      position: fixed;
+      right: 12px;
+      top: 12px;
+    }
+    &:hover {
+      color: white;
+    }
+  }
+  .c-panel {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    .control {
+      flex: 1;
+      height: 100%;
+      font-size: 24px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  .image {
+    background: url(http://via.placeholder.com/150x150);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 100%;
+  }
+}

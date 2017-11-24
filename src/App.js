@@ -18,7 +18,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      active: 6
+      active: 7
     }
   }
   render() {
