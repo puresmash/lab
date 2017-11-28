@@ -1,90 +1,111 @@
+
+@mixin active-control {
+  display: flex;
+  opacity: 1;
+  left: 0;
+}
+
 .maskPlayer {
-  background-color: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
   position: fixed;
   left: 0;
   top: 0;
   opacity: 1;
-  will-change: opacity;
+  // will-change: opacity;
   display: flex;
   justify-content: center;
-  // align-items: center;
-  .content {
-    background-color: white;
-    // margin: 0px auto;
-    // width: 100%;
-    // height: 80%;
+  .bg {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+  }
+  .control {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: -100vw;
+    display: flex;
+    opacity: 0;
+    transition: opacity .5s;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 768px){
+      @include active-control;
+    }
+  }
+  div.top, div.bottom {
+    display: flex;
+    padding: 24px;
+    color: white;
+    z-index: 1;
+    &.top {
+      font-size: 22px;
+      justify-content: flex-start;
+      background: linear-gradient(rgba(0, 0, 0, .5), rgba(0,0,0,0));
+    }
+    &.bottom {
+      justify-content: flex-end;
+      background: linear-gradient(rgba(0, 0, 0, 0), rgba(0,0,0,0.5));
+      :hover {
+        color: lightskyblue;
+        cursor: pointer;
+        transition: color .3s;
+      }
+    }
+  }
+  .modal-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     position: fixed;
-    // min-height: 250px;
-
-  }
-  .modal-header {
-    padding: 24px;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    // min-height: 118px;
-    // background-color: rgba(0, 0, 0, 0.2);
-    position: absolute;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.1);
-    transition: height 0.5s;
-    overflow: hidden;
-    .title {
-      display: flex;
-      justify-content: space-between;
-      align-self: stretch;
-      margin-bottom: 8px;
-      line-height: 32px;
-      min-height: 32px;
-      font-size: 22px;
-    }
-    .desc {
-      text-align: left;
-      opacity: 1;
-      transition: opacity 0.2s;
-      // transition-delay: 0.1s;
+    &:hover .control {
+      @include active-control;
     }
   }
-  .modal-body {
-    padding: 0 24px 24px;
-    // height: calc(100% - 104px);
-    flex: 1;
+  .content {
+    background-color: #616161;
+    width: 100%;
+    height: 100%;
   }
   .btn {
-    max-width: 32px;
-    max-height: 32px;
+    max-height: 10vh;
     border: 0;
     background: unset;
     font-size: 24px;
     line-height: 24px;
     outline: none;
+    z-index: 1;
     &.btn-close {
       position: fixed;
-      right: 12px;
-      top: 12px;
+      right: 0;
+      display: flex;
+      justify-content: flex-end;
+      width: 200px;
+      height: 10vh;
+      padding: 12px;
+      cursor: pointer;
     }
     &:hover {
       color: white;
     }
   }
-  .c-panel {
-    position: absolute;
+  .arrow-layer {
     display: flex;
-    width: 100%;
-    height: 100%;
-    .control {
+    flex: 1;
+    .arrow {
       flex: 1;
       height: 100%;
       font-size: 24px;
       padding: 0 16px;
       display: flex;
       align-items: center;
+      cursor: pointer;
       &:hover {
         color: white;
       }
