@@ -13,15 +13,14 @@ class UI1 extends Component {
     this.state = {
       open: false
     };
-    this.blocks = [];
   }
-  handleOpen = (id) => () => {
-    console.log(this.blocks)
-    const bouding = this.blocks[id].getBoundingClientRect();
+  handleOpen = (index, domElement) => {
+    if(domElement == null) return;
+    const bouding = domElement.getBoundingClientRect();
     this.setState({
       open: true,
-      src: items[id],
-      index: id,
+      src: items[index],
+      index,
       start: {
         x: bouding.x,
         y: bouding.y,
@@ -41,33 +40,29 @@ class UI1 extends Component {
     this.handlePage(id)
   }
   handlePage = (id) => {
-    const bouding = this.blocks[id].getBoundingClientRect();
     this.setState({
       index: id,
-      src: items[id],
-      start: {
-        x: bouding.x,
-        y: bouding.y,
-        h: bouding.height,
-        w: bouding.width
-      }
+      src: items[id]
     })
   }
   render() {
     return (
       <div style={{ display: 'flex' }}>
-        { items.map((src, i) => (
-          <div key={`p-${i}`}>
-            <div
-              ref={ref => this.blocks[i] = ref}
-              onClick={this.handleOpen(i)}
-              className="block-image"
-              style={{ backgroundImage: `url(${src})` }}>
-              {/* <div  /> */}
+        { items.map((src, i) => {
+          let domElement = null;
+          return (
+            <div key={`p-${i}`}>
+              <div
+                ref={ref => domElement = ref}
+                onClick={() => this.handleOpen(i, domElement)}
+                className="block-image"
+                style={{ backgroundImage: `url(${src})` }}>
+                {/* <div  /> */}
+              </div>
+              {/* <button className="btn" onClick={this.handleOpen(i)}>Open Modal</button> */}
             </div>
-            {/* <button className="btn" onClick={this.handleOpen(i)}>Open Modal</button> */}
-          </div>
-        ))}
+          );
+        })}
         <MaskPlayer
           start={this.state.start}
           open={this.state.open}

@@ -61,28 +61,31 @@ class MaskPlayer extends Component {
           </button>
 
           { open && (
-            <AnimeBox start={start}>
-              <Wrapper>
-                <BackLayer onClick={onClose}/>
-                <Control>
-                  <div className="top">{'TITLE'}</div>
-                  <div className="arrow-layer">
-                    <div className="arrow" onClick={onPrevious}>
-                      <i className="fa fa-chevron-left" />
+            <div>
+              <BackLayer onClick={onClose}/>
+              <AnimeBox start={start}>
+                <Wrapper>
+
+                  <Control>
+                    <div className="top">{'TITLE'}</div>
+                    <div className="arrow-layer">
+                      <div className="arrow" onClick={onPrevious}>
+                        <i className="fa fa-chevron-left" />
+                      </div>
+                      <div className="arrow" onClick={onNext}
+                        style={{ flex: 3, justifyContent: 'flex-end' }}>
+                        <i className="fa fa-chevron-right" />
+                      </div>
                     </div>
-                    <div className="arrow" onClick={onNext}
-                      style={{ flex: 3, justifyContent: 'flex-end' }}>
-                      <i className="fa fa-chevron-right" />
+                    <div className="bottom">
+                      <ControlItem isLast className="fa fa-thumbs-o-up" label="讚" />
+                      <ControlItem className="fa fa-star-o" label="封面" />
                     </div>
-                  </div>
-                  <div className="bottom">
-                    <ControlItem isLast className="fa fa-thumbs-o-up" label="讚" />
-                    <ControlItem className="fa fa-star-o" label="封面" />
-                  </div>
-                </Control>
-                <Content>{children}</Content>
-              </Wrapper>
-            </AnimeBox>
+                  </Control>
+                  <Content>{children}</Content>
+                </Wrapper>
+              </AnimeBox>
+            </div>
           )}
       </div>
     );
