@@ -32,7 +32,11 @@
 }
 
 /**/
-
+@media screen and (max-width: 768px){
+  .App {
+    flex-direction: column-reverse;
+  }
+}
 .Nav {
   flex: 3;
   border-right: 1px solid black;

@@ -6,7 +6,8 @@
   top: 0;
   opacity: 1;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  z-index: 99; }
   .maskPlayer .bg {
     background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
@@ -17,7 +18,7 @@
     z-index: -1; }
   .maskPlayer .control {
     position: absolute;
-    width: 100%;
+    width: 96%;
     height: 100%;
     left: -100vw;
     display: flex;
@@ -30,7 +31,7 @@
       .maskPlayer .control {
         display: flex;
         opacity: 1;
-        left: 0; } }
+        left: 2%; } }
   .maskPlayer div.top, .maskPlayer div.bottom {
     display: flex;
     padding: 24px;
@@ -51,15 +52,18 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    position: fixed; }
+    position: fixed;
+    padding: 0 2%;
+    box-sizing: border-box; }
     .maskPlayer .modal-wrapper:hover .control {
       display: flex;
       opacity: 1;
-      left: 0; }
-  .maskPlayer .content {
+      left: 2%; }
+  .maskPlayer .modal-content {
     background-color: #616161;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    overflow: scroll; }
   .maskPlayer .btn {
     max-height: 10vh;
     border: 0;
@@ -79,9 +83,13 @@
       cursor: pointer; }
     .maskPlayer .btn:hover {
       color: white; }
+    @media screen and (max-width: 768px) {
+      .maskPlayer .btn {
+        color: white; } }
   .maskPlayer .arrow-layer {
     display: flex;
-    flex: 1; }
+    flex: 1;
+    z-index: 1; }
     .maskPlayer .arrow-layer .arrow {
       flex: 1;
       height: 100%;
@@ -93,7 +101,11 @@
       text-shadow: rgba(120, 120, 120, 0.9) 0px 0px 5px, rgba(120, 120, 120, 0.9) 1px 2px 5px; }
       .maskPlayer .arrow-layer .arrow:hover {
         color: white; }
+      @media screen and (max-width: 768px) {
+        .maskPlayer .arrow-layer .arrow {
+          color: white; } }
   .maskPlayer .image {
+    background-color: #616161;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;

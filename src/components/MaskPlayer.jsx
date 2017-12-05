@@ -14,7 +14,7 @@ const ControlItem = ({ className, isLast, label }) =>
     <span style={{ paddingLeft: 8 }}>{label}</span>
   </i>;
 // const ControlArrow =
-const Content = ({ children }) => <div className="content">{children}</div>;
+const Content = ({ children }) => <div className="modal-content">{children}</div>;
 
 const AnimeBox = ({ children, start }) => {
   const viewport = getViewport();
@@ -22,6 +22,7 @@ const AnimeBox = ({ children, start }) => {
     height: start.h * 100 / viewport.y, width: start.w * 100 / viewport.x,
     left: start.x, top: start.y
   }
+  console.warn(defaultStyle)
   const style = {
     height: spring(80), width: spring(100),
     left: spring(0), top: spring(viewport.y * 0.1)
@@ -52,10 +53,11 @@ class MaskPlayer extends Component {
   handleToogleTitle = () => this.setState({ closeTitle: !this.state.closeTitle });
 
   render() {
-    const { children, onPrevious, onNext, onClose, open, start } = this.props;
+    const { children, onPrevious, onNext, onClose, open, start, scale } = this.props;
     const { closeTitle } = this.state;
     return (
-        <div className="maskPlayer" style={open ? {} : { display: 'none' }}>
+        <div ref={this.props.wrapperRef}
+          className="maskPlayer" style={open ? {} : { display: 'none' }}>
           <button className="btn btn-close" onClick={onClose}>
             <i className="fa fa-times" />
           </button>
@@ -82,7 +84,7 @@ class MaskPlayer extends Component {
                       <ControlItem className="fa fa-star-o" label="封面" />
                     </div>
                   </Control>
-                  <Content>{children}</Content>
+                  <Content scale={scale}>{children}</Content>
                 </Wrapper>
               </AnimeBox>
             </div>
