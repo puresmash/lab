@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Hammer from 'hammerjs';
 import _ from 'lodash';
 import MaskPlayer from '../components/MaskPlayer';
+import HammerImage from '../components/HammerImage';
 
 const items = [
   'http://via.placeholder.com/250x150',
@@ -38,7 +39,7 @@ class UI1 extends Component {
         w: bouding.width
       }
     });
-    this.initGesture();
+    // this.initGesture();
   }
   handleNext = () => {
     const index = this.state.index;
@@ -104,7 +105,7 @@ class UI1 extends Component {
               <div
                 ref={ref => domElement = ref}
                 onClick={() => this.handleOpen(i, domElement)}
-                onTouchEnd={() => this.handleOpen(i, domElement)}
+                // onTouchEnd={() => this.handleOpen(i, domElement)}
                 className="block-image"
                 style={{ backgroundImage: `url(${src})` }}>
                 {/* <div  /> */}
@@ -121,11 +122,11 @@ class UI1 extends Component {
           onNext={this.handleNext}
           onPrevious={this.handlePrevious}
           onClose={() => this.setState({ open: false })}>
-
-          <div className="image" style={{
+          <HammerImage target={this.gestureRef} src={this.state.src}/>
+          {/* <div className="image" style={{
             backgroundImage: `url(${this.state.src})`,
             transform: `scale3D(${this.state.scale}, ${this.state.scale}, 1)`
-          }} />
+          }} /> */}
 
         </MaskPlayer>
       </div>
