@@ -1,0 +1,26 @@
+
+.collapse {
+  /*display: flex;
+  flex-direction: row;
+  justify-content: space-between;*/
+  border: 1px solid lightgray;
+  padding: 8px 16px;
+  .banner {
+    position: relative;
+    user-select: none;
+    .icon {
+      position: absolute;
+      right: 0;
+    }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .container-mask {
+    overflow: hidden;
+  }
+  .container {
+    padding-top: 8px;
+    text-align: left;
+  }
+}
