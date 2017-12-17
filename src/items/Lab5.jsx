@@ -16,6 +16,25 @@ const items = [
   'http://via.placeholder.com/310x150'
 ];
 
+// items with data
+const nitems = [
+  {
+    src: 'http://via.placeholder.com/1281x1024',
+    thumbnail: 'http://via.placeholder.com/301x150',
+    data: { title: 'example1' }
+  },
+  {
+    src: 'http://via.placeholder.com/1282x1024',
+    thumbnail: 'http://via.placeholder.com/302x150',
+    data: { title: 'example2' }
+  },
+  {
+    src: 'http://via.placeholder.com/1283x1024',
+    thumbnail: 'http://via.placeholder.com/303x150',
+    data: { title: 'example3' }
+  },
+];
+
 export default class Lab5 extends Component {
   static TITLE = 'Demo new PrefetchPlayer';
   constructor(){

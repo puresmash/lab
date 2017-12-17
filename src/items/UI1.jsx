@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Hammer from 'hammerjs';
 import _ from 'lodash';
 import MaskPlayer from '../components/MaskPlayer';
-import HammerImage from '../components/HammerImage';
+import ScaleImage from '../components/ScaleImage';
 
 const items = [
   'http://via.placeholder.com/250x150',
@@ -39,7 +39,6 @@ class UI1 extends Component {
         w: bouding.width
       }
     });
-    // this.initGesture();
   }
   handleNext = () => {
     const index = this.state.index;
@@ -57,40 +56,7 @@ class UI1 extends Component {
       src: items[id]
     })
   }
-  // Pinch
-  pinchEvent = _.throttle(
-    (e) => {
-      const scale = e.scale;
-      this.setState({ scale: this.lastScale * scale });
-      if(e.type === 'pinchend') {
-        console.log('pinch end', scale);
-        this.lastScale *= scale;
-        return;
-      }
-      console.log('pinch', scale);
-    }, 100
-  );
-  // Tap
-  tapEvent = _.throttle(
-    (e) => console.log('tap', e), 100
-  );
-  // Pan
-  panEvent = _.throttle(
-    (e) => console.log(e), 100
-  )
-  initGesture = () => {
-    // const square = document.querySelector('.maskPlayer');
-    const square = this.gestureRef;
-    const manager = new Hammer.Manager(square);
-    const pinch = new Hammer.Pinch();
-    const rotate = new Hammer.Rotate();
-    const tap = new Hammer.Tap();
-    pinch.recognizeWith(rotate);
-    // Add the recognizer to the manager.
-    manager.add([pinch, rotate, tap]);
-    manager.on('pinch pinchend', this.pinchEvent)
-    manager.on('tap', this.tapEvent)
-  }
+
   render() {
     const { isMobile } = this.state;
     return (
@@ -105,29 +71,21 @@ class UI1 extends Component {
               <div
                 ref={ref => domElement = ref}
                 onClick={() => this.handleOpen(i, domElement)}
-                // onTouchEnd={() => this.handleOpen(i, domElement)}
                 className="block-image"
                 style={{ backgroundImage: `url(${src})` }}>
-                {/* <div  /> */}
               </div>
               {/* <button className="btn" onClick={this.handleOpen(i)}>Open Modal</button> */}
             </div>
           );
         })}
         <MaskPlayer
-          wrapperRef={ref => this.gestureRef = ref}
           start={this.state.start}
           scale={this.state.scale}
           open={this.state.open}
           onNext={this.handleNext}
           onPrevious={this.handlePrevious}
           onClose={() => this.setState({ open: false })}>
-          <HammerImage target={this.gestureRef} src={this.state.src}/>
-          {/* <div className="image" style={{
-            backgroundImage: `url(${this.state.src})`,
-            transform: `scale3D(${this.state.scale}, ${this.state.scale}, 1)`
-          }} /> */}
-
+          <ScaleImage src={this.state.src}/>
         </MaskPlayer>
       </div>
     );

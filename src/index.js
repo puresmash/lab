@@ -11,6 +11,7 @@ import { logTime, mockApiCall } from './utils/mockUtils';
 import * as Actions from './actions';
 // epics
 import 'rxjs';
+import { Observable } from 'rxjs'
 
 const rootReducer = (state={}, action) => {
   switch (action.type) {
@@ -26,19 +27,31 @@ const rootEpic = combineEpics(
   action$ => {
     return action$
     .ofType(Actions.TEST_ACTION)
-    .throttleTime(1000)
+    // .throttleTime(1000)
+
     .map((action) => {
       console.log('Pass throttle');
       return action;
     })
-    .exhaustMap((action) => {
+    .mergeMap((action) => {
       console.log('===WAITING API RESULT for 5 SECS===');
-      console.log('EXHAUST ANY for 5 SECS');
+      // console.log('EXHAUST ANY for 5 SECS');
       console.log(action)
       logTime(5);
       return mockApiCall(5);
     })
-    .mapTo({ type: 'TEST_ACTION_SUCCESS' });
+    .mergeMap((action) => {
+      console.log('===WAITING Second Run for 5 SECS===');
+      console.log(action)
+      logTime(5);
+      return mockApiCall(5);
+    })
+    .mergeMap(() =>
+      Observable.concat(
+        Observable.of({ type: 'TEST_ACTION_SUCCESS' }),
+        Observable.of({ type: 'TEST_ACTION_SUCCESS' })
+      )
+    );
   }
 )
 

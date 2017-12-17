@@ -23,16 +23,32 @@ export const initPinchHelper = (cb) => {
 
 export const initTapHelper = (cb) => _.throttle(e => console.log('tap', e), 100);
 
-export const initPanHelper = (cb) => {
+export const initDoubleTapHelper = (cb) => _.throttle(e => {
+  console.log('double tap', e);
+  cb();
+}, 100)
+
+export const initPanHelper = (cb, calcBound) => {
   let prevLocate = { x: 0, y: 0 };
   return _.throttle(
     e => {
+      const { mx, my } = calcBound();
+      console.log(mx, my)
       const x = e.deltaX;
       const y = e.deltaY;
-      cb(x + prevLocate.x, y + prevLocate.y);
+
+      let rx = x + prevLocate.x;
+      if(Math.abs(rx) > mx) {
+        rx = rx < 0 ? -mx : mx;
+      }
+      let ry = y + prevLocate.y;
+      if(Math.abs(ry) > my) {
+        ry = ry < 0 ? -my : my;
+      }
+      cb(rx, ry);
       if(e.type === 'panend') {
-        prevLocate.x += x;
-        prevLocate.y += y;
+        prevLocate.x = rx;
+        prevLocate.y = ry;
       }
     }, 34
   );

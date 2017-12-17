@@ -8,6 +8,13 @@
   display: flex;
   justify-content: center;
   z-index: 99; }
+  .maskPlayer.f12 .modal-wrapper {
+    top: 0 !important;
+    padding: 0;
+    height: 100vh !important; }
+  .maskPlayer.f12 .control {
+    left: 0 !important;
+    width: 100%; }
   .maskPlayer .bg {
     background-color: rgba(0, 0, 0, 0.4);
     position: fixed;

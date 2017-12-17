@@ -16,6 +16,15 @@
   display: flex;
   justify-content: center;
   z-index: 99;
+  &.f12 .modal-wrapper {
+    top: 0 !important;
+    padding: 0;
+    height: 100vh !important;
+  }
+  &.f12 .control {
+    left: 0 !important;
+    width: 100%;
+  }
   .bg {
     background-color: rgba(0, 0, 0, 0.4);
     position: fixed;

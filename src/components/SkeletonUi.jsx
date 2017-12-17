@@ -31,7 +31,7 @@ export default class SkeletonUi extends Component {
           <div>{styles.map(item => {
             return (
               <Block key={item.key} style={{
-                  transform: `translate(${item.style.x}px)`,
+                transform: `translate(${item.style.x}px)`,
                 opacity: item.style.opacity,
                 height: item.style.height,
                 marginTop: item.style.margin,
