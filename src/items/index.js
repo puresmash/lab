@@ -1,16 +1,15 @@
-import Lab1 from './Lab1';
-import Lab2 from './Lab2';
+import AdditiveSwitch from './Lab1/Main';
+import UnmountAnimation from './Lab2/Main';
 import Lab3 from './Lab3';
 import Lab4 from './Lab4';
 import Lab5 from './Lab5';
-import Lab6 from './Lab6';
-import Lab7 from './Lab7';
-import UI1 from './UI1';
-import UI2 from './UI2';
-import UI3 from './UI3';
-
+import BasicRxJs from './Lab6/Main';
+import Lab7 from './Lab7/Main';
+import AdditiveModal from './UI1/Main';
+import Collapse from './UI2/Main';
+import FadeInAnimation from './UI3/Main';
 
 export default {
-  Lab1, Lab2, Lab3, Lab4, Lab5, Lab6, Lab7,
-  UI1, UI2, UI3
+  AdditiveSwitch, UnmountAnimation, Lab3, Lab4, Lab5, BasicRxJs, Lab7,
+  AdditiveModal, Collapse, FadeInAnimation
 }

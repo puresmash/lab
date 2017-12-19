@@ -3,7 +3,7 @@ import { spring, TransitionMotion } from 'react-motion';
 
 const Block = ({ children, ...others }) => <div {...others} className="track">{children}</div>;
 
-export default class SkeletonUi extends Component {
+export default class AdditiveList extends Component {
   render() {
     return (
       <TransitionMotion

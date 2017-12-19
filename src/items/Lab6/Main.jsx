@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Observable } from 'rxjs';
 
 
-export default class Lab6 extends Component {
-  static TITLE = 'Demo dom mousedrag using rxjs';
+export default class BasicRxJs extends Component {
+  static TITLE = 'Demo rxjs usage on dom mousedrag';
   constructor(){
     super();
     this.state = {
@@ -16,7 +16,11 @@ export default class Lab6 extends Component {
 
     const mousemove$ = Observable.fromEvent(document, 'mousemove')
     const mouseup$ = Observable.fromEvent(document, 'mouseup')
-    const mousedown$ = Observable.fromEvent($target, 'mousedown');
+    const mousedown$ = Observable.fromEvent($target, 'mousedown')
+      .map(md => {
+        md.prevX = this.state.movementX;
+        return md;
+      });
 
     const mousedrag$ = mousedown$
     .switchMap(md => {
@@ -25,7 +29,7 @@ export default class Lab6 extends Component {
       return mousemove$
       .map(mm => {
         mm.preventDefault();
-        return mm.screenX - startX;
+        return mm.screenX - startX + md.prevX;
       })
       .takeUntil(mouseup$)
     })

@@ -4,8 +4,8 @@ import { Motion, spring } from 'react-motion';
 import classNames from 'classnames';
 import Hammer from 'hammerjs';
 import _ from 'lodash';
-import { initPinchHelper, initPanHelper, initDoubleTapHelper } from '../helpers/EventHelper';
-import { getViewport, toggleFullScreen, closeFullScreen } from '../utils/CommonUtils';
+import { initPinchHelper, initPanHelper, initDoubleTapHelper } from '../../helpers/EventHelper';
+import { getViewport, toggleFullScreen, closeFullScreen } from '../../utils/CommonUtils';
 import './MaskPlayer.css';
 
 const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';

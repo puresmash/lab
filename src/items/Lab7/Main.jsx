@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import ConsoleGUI from '../components/ConsoleGUI';
-import * as Actions from '../actions';
+import ConsoleGUI from './ConsoleGUI';
+import * as Actions from '../../actions';
 
 const oldConsole = console.log;
 

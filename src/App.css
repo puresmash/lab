@@ -60,11 +60,29 @@
   border-bottom: 1px solid black;
 }
 
-/**/
+.btn {
+  outline: 0;
+  padding: 8px 16px;
+  background-color: white;
+  border: 1px solid lightgray;
+  cursor: pointer;
+}
 
+/* lab 1 */
+.toggle-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 16px;
+  margin-top: 16px;
+}
+.toggle-demo > span {
+  margin: 16px 0 16px 0;
+  text-align: left;
+}
 .track {
+  width: 120px;
   position: relative;
-  margin: 16px;
   background-color: lightgray;
   height: 32px;
   border-radius: 30px;

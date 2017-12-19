@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import Hammer from 'hammerjs';
 import _ from 'lodash';
-import MaskPlayer from '../components/MaskPlayer';
-import ScaleImage from '../components/ScaleImage';
+import MaskPlayer from './MaskPlayer';
+import ScaleImage from './ScaleImage';
 
 const items = [
   'http://via.placeholder.com/250x150',
   'http://via.placeholder.com/150x250'
 ]
 
-class UI1 extends Component {
-  static TITLE = 'Mask';
+export default class AdditiveModal extends Component {
+  static TITLE = 'Additive Modal';
   constructor() {
     super();
     this.state = {
@@ -91,5 +91,3 @@ class UI1 extends Component {
     );
   }
 }
-
-export default UI1;

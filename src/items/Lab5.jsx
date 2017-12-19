@@ -36,7 +36,7 @@ const nitems = [
 ];
 
 export default class Lab5 extends Component {
-  static TITLE = 'Demo new PrefetchPlayer';
+  static TITLE = 'PrefetchPlayer using PrefetchImage';
   constructor(){
     super();
     this.state = {
@@ -94,13 +94,13 @@ export default class Lab5 extends Component {
         {/* TOOLBAR */}
         <div className="toolbar">
           <button label="<" onClick={this.prev}>
-            <i class="fa fa-arrow-circle-left" aria-hidden="true" />
+            <i className="fa fa-arrow-circle-left" aria-hidden="true" />
           </button>
           <div className="page">
             <p style={{ minWidth: 52 }}>{`${this.state.page + 1} / ${items.length}`}</p>
           </div>
           <button label=">" onClick={this.next}>
-            <i class="fa fa-arrow-circle-right" aria-hidden="true" />
+            <i className="fa fa-arrow-circle-right" aria-hidden="true" />
           </button>
         </div>
       </div>
