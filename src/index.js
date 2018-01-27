@@ -9,19 +9,10 @@ import { Provider } from 'react-redux'
 import { createEpicMiddleware, combineEpics } from 'redux-observable';
 import { logTime, mockApiCall } from './utils/mockUtils';
 import * as Actions from './actions';
+import rootReducer from './reducers';
 // epics
 import 'rxjs';
 import { Observable } from 'rxjs'
-
-const rootReducer = (state={}, action) => {
-  switch (action.type) {
-    case 'TEST_ACTION_SUCCESS':
-      console.log('Receive action', action);
-      return { ...state }
-    default:
-      return state;
-  }
-}
 
 const rootEpic = combineEpics(
   action$ => {
